@@ -1,7 +1,7 @@
 {
   "name": "@gamariverib/hangman-game-lib",
   "description": "Biblioteca de clases para el juego del ahorcado (adivina la palabra)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "author": {
     "name": "José Gamaliel Rivera Ibarra",
@@ -13,7 +13,11 @@
     "node": ">=10.0.0",
     "npm": ">=6.14.0"
   },
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {}
+  "scripts": {
+    "prepublish": "npx tsc",
+    "build": "npx tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
 }
