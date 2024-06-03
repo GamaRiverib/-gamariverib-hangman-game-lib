@@ -31,34 +31,29 @@ export class Word {
     constructor(word: string, hints?: Array<string> | undefined, category?: string | undefined, difficulty?: import("./game_config").DifficultyValue | undefined, definition?: string);
     /**
      * La palabra
-     * @readonly
      * @returns {string}
      */
-    readonly get word(): string;
+    get word(): string;
     /**
      * Pistas de la palabra
-     * @readonly
      * @returns {Array.<string>}
      */
-    readonly get hints(): string[];
+    get hints(): string[];
     /**
      * Categoría de la palabra
-     * @readonly
      * @returns {string}
      */
-    readonly get category(): string;
+    get category(): string;
     /**
      * Dificultad de la palabra
-     * @readonly
      * @returns {number}
      */
-    readonly get difficulty(): number;
+    get difficulty(): number;
     /**
      * Definición de la palabra
-     * @readonly
      * @returns {string}
      */
-    readonly get definition(): string;
+    get definition(): string;
     /**
      * Probar si la letra forma parte de la palabra
      * @param {Letter} letter Letra
@@ -80,4 +75,16 @@ export const Letters: Array<Letter>;
  * @returns {Letter|undefined}
  */
 export function stringToLetter(str: string): Letter | undefined;
+/**
+ * Letras de la palabra
+ * @param {string} word Palabra
+ * @returns {Array.<Letter>}
+ */
+export function getLetters(word: string): Array<Letter>;
+/**
+ * Inicializa la palabra desde un objeto JSON
+ * @param {any} json Objeto JSON con la información de la palabra
+ * @returns {Word} Instancia de la palabra
+ */
+export function createWord(json: any): Word;
 //# sourceMappingURL=word.d.ts.map

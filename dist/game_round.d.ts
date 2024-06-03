@@ -108,7 +108,6 @@ export class GameRound {
  */
 /**
  * Enumerador sobre el estatus de una ronda del juego.
- * @readonly
  * @type {GameRoundStatusEnum}
  */
 export const GameRoundStatus: GameRoundStatusEnum;

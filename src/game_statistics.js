@@ -1,10 +1,19 @@
 /// @ts-check
 
 const { GameRound, GameRoundStatus } = require("./game_round");
+const { forceNumber } = require("./index");
+
+/**
+ * Crear una instancia de GameStatistics desde un objeto json.
+ * @param {any} json Objeto json
+ * @returns {GameStatistics}
+ */
+function createGameStatistics(json) {
+  return GameStatistics.fromJson(json);
+}
 
 /**
  * @class GameStatistics
- * @property {DifficultyValue} difficulty
  * @property {number} rounds
  * @property {number} wins
  * @property {number} lost
@@ -45,7 +54,7 @@ class GameStatistics {
    * Conteo de letras correctas
    * @type {number}
    */
-  correctLeterCount = 0;
+  correctLetterCount = 0;
   /**
    * Conteo de letras incorrectas
    * @type {number}
@@ -63,6 +72,37 @@ class GameStatistics {
   noWrongLettersCount = 0;
 
   constructor() {}
+
+  /**
+   * Crea una instancia de GameStatistics a partir de un objeto JSON.
+   * @static
+   * @param {any} json Objeto JSON.
+   * @returns {GameStatistics}
+   */
+  static fromJson(json) {
+    const {
+      rounds,
+      wins,
+      lost,
+      consecutiveWins,
+      highestConsecutiveWins,
+      correctLetterCount,
+      wrongLetterCount,
+      helpersCount,
+      noWrongLettersCount,
+    } = json;
+    const obj = new GameStatistics();
+    obj.rounds = forceNumber(rounds);
+    obj.wins = forceNumber(wins);
+    obj.lost = forceNumber(lost);
+    obj.consecutiveWins = forceNumber(consecutiveWins);
+    obj.highestConsecutiveWins = forceNumber(highestConsecutiveWins);
+    obj.correctLetterCount = forceNumber(correctLetterCount);
+    obj.wrongLetterCount = forceNumber(wrongLetterCount);
+    obj.helpersCount = helpersCount;
+    obj.noWrongLettersCount = forceNumber(noWrongLettersCount);
+    return obj;
+  }
 
   /**
    * Contabilizar una ronda
@@ -89,7 +129,7 @@ class GameStatistics {
       }
       this.consecutiveWins = 0;
     }
-    this.correctLeterCount += round.hits;
+    this.correctLetterCount += round.hits;
     this.wrongLetterCount += round.failures;
     if (round.usedHelpers.length) {
       round.usedHelpers.forEach((helper) => {
@@ -102,4 +142,4 @@ class GameStatistics {
   }
 }
 
-module.exports = { GameStatistics };
+module.exports = { GameStatistics, createGameStatistics };

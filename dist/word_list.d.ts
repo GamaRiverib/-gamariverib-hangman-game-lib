@@ -21,10 +21,10 @@ export class WordList {
     /**
      * Inicializa una lista de palabras desde el contenido de un archivo CSV
      * @param {string} language Idioma de las palabras
-     * @param {*} csv Palabras en formato csv (letters, category, difficulty, definition, hits)
+     * @param {string} csv Palabras en formato csv (letters, category, difficulty, definition, hits)
      * @returns {WordList}
      */
-    static fromCsv(language: string, csv: any): WordList;
+    static fromCsv(language: string, csv: string): WordList;
     /**
      * Constructor de la clase WordList
      * @param {string|undefined} language Idioma de las palabras
@@ -88,5 +88,24 @@ export class WordList {
     getRandomWord(): Word;
     #private;
 }
+/**
+ * Inicializa un arreglo de palabras
+ * @param {Array.<any>} json
+ * @returns {Array.<Word>}
+ */
+export function createWords(json: Array<any>): Array<Word>;
+/**
+ * Inicializa una lista de palabras desde un arreglo JSON
+ * @param {any} json
+ * @returns {WordList}
+ */
+export function createWordListFromJson(json: any): WordList;
+/**
+ * Inicializa una lista de palabras desde el contenido de un archivo CSV
+ * @param {string} language Idioma de las palabras
+ * @param {string} csv Palabras en formato csv (letters, category, difficulty, definition, hits)
+ * @returns {WordList}
+ */
+export function createWordListFromCsv(language: string, csv: string): WordList;
 import { Word } from "./word";
 //# sourceMappingURL=word_list.d.ts.map

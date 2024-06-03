@@ -53,6 +53,15 @@ const HelpersByDifficulty = [
 ];
 
 /**
+ * Crea una instancia de GameConfig desde un objeto JSON.
+ * @param {any} json
+ * @returns {GameConfig}
+ */
+function createGameConfig(json) {
+  return GameConfig.fromJson(json);
+}
+
+/**
  * @class GameConfig
  * @property {string} language
  * @property {Array.<string>} [categories]
@@ -115,7 +124,6 @@ class GameConfig {
 
   /**
    * Idioma de las palabras a utilizar
-   * @readonly
    * @returns {string}
    */
   get language() {
@@ -124,7 +132,6 @@ class GameConfig {
 
   /**
    * Lista de categorias de palabras a utilizar
-   * @readonly
    * @returns {Array.<string>|undefined}
    */
   get categories() {
@@ -133,7 +140,6 @@ class GameConfig {
 
   /**
    * Nivel de dificultad del juego
-   * @readonly
    * @return {DifficultyValue}
    */
   get difficulty() {
@@ -142,7 +148,6 @@ class GameConfig {
 
   /**
    * Número total de oportunidades según el nivel de dificultad
-   * @readonly
    * @returns {number}
    */
   get oportunities() {
@@ -151,7 +156,6 @@ class GameConfig {
 
   /**
    * Número total de pistas si están disponibles según el nivel de dificultad
-   * @readonly
    * @return {number}
    */
   get hints() {
@@ -160,7 +164,6 @@ class GameConfig {
 
   /**
    * Número total de ayudas según el nivel de dificultad
-   * @readonly
    * @returns {Array.<HelperConfig>}
    */
   get helpers() {
@@ -181,4 +184,5 @@ class GameConfig {
 module.exports = {
   Difficulty,
   GameConfig,
+  createGameConfig,
 };

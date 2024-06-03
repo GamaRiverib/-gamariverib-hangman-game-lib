@@ -44,41 +44,41 @@ export class GameConfig {
     constructor(language: string, categories?: Array<string> | undefined, difficulty?: DifficultyValue | undefined);
     /**
      * Idioma de las palabras a utilizar
-     * @readonly
      * @returns {string}
      */
-    readonly get language(): string;
+    get language(): string;
     /**
      * Lista de categorias de palabras a utilizar
-     * @readonly
      * @returns {Array.<string>|undefined}
      */
-    readonly get categories(): string[];
+    get categories(): string[];
     /**
      * Nivel de dificultad del juego
-     * @readonly
      * @return {DifficultyValue}
      */
-    readonly get difficulty(): DifficultyValue;
+    get difficulty(): DifficultyValue;
     /**
      * Número total de oportunidades según el nivel de dificultad
-     * @readonly
      * @returns {number}
      */
-    readonly get oportunities(): number;
+    get oportunities(): number;
     /**
      * Número total de pistas si están disponibles según el nivel de dificultad
-     * @readonly
      * @return {number}
      */
-    readonly get hints(): number;
+    get hints(): number;
     /**
      * Número total de ayudas según el nivel de dificultad
-     * @readonly
      * @returns {Array.<HelperConfig>}
      */
-    readonly get helpers(): HelperConfig[];
+    get helpers(): HelperConfig[];
     #private;
 }
+/**
+ * Crea una instancia de GameConfig desde un objeto JSON.
+ * @param {any} json
+ * @returns {GameConfig}
+ */
+export function createGameConfig(json: any): GameConfig;
 import { HelperConfig } from "./helper";
 //# sourceMappingURL=game_config.d.ts.map

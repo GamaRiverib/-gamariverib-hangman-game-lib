@@ -16,7 +16,6 @@ const { Word, Letters } = require("./word");
 
 /**
  * Enumerador sobre el estatus de una ronda del juego.
- * @readonly
  * @type {GameRoundStatusEnum}
  */
 const GameRoundStatus = {
@@ -103,6 +102,13 @@ class GameRound {
      * @type {GameRoundStatusValue}
      */
     this.#status = GameRoundStatus.InProcess;
+
+    if (word.category) {
+      this.hints.push(word.category);
+    }
+    if (word.definition) {
+      this.hints.push(word.definition);
+    }
   }
 
   /**

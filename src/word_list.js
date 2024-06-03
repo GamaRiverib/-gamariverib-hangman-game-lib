@@ -4,6 +4,34 @@ const { Difficulty } = require("./game_config");
 const { Word } = require("./word");
 
 /**
+ * Inicializa un arreglo de palabras
+ * @param {Array.<any>} json
+ * @returns {Array.<Word>}
+ */
+function createWords(json) {
+  return WordList.wordsFromJson(json);
+}
+
+/**
+ * Inicializa una lista de palabras desde un arreglo JSON
+ * @param {any} json
+ * @returns {WordList}
+ */
+function createWordListFromJson(json) {
+  return WordList.fromJson(json);
+}
+
+/**
+ * Inicializa una lista de palabras desde el contenido de un archivo CSV
+ * @param {string} language Idioma de las palabras
+ * @param {string} csv Palabras en formato csv (letters, category, difficulty, definition, hits)
+ * @returns {WordList}
+ */
+function createWordListFromCsv(language, csv) {
+  return WordList.fromCsv(language, csv);
+}
+
+/**
  * @class WordList
  * @property {string} language Idioma de la lista de palabras
  * @property {Array.<Word>} words Las palabras
@@ -161,7 +189,7 @@ class WordList {
   /**
    * Inicializa una lista de palabras desde el contenido de un archivo CSV
    * @param {string} language Idioma de las palabras
-   * @param {*} csv Palabras en formato csv (letters, category, difficulty, definition, hits)
+   * @param {string} csv Palabras en formato csv (letters, category, difficulty, definition, hits)
    * @returns {WordList}
    */
   static fromCsv(language, csv) {
@@ -233,4 +261,4 @@ class WordList {
   }
 }
 
-module.exports = { WordList };
+module.exports = { WordList, createWords, createWordListFromJson, createWordListFromCsv };

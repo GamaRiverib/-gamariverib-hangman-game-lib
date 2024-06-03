@@ -67,6 +67,24 @@ function stringToLetter(str) {
 }
 
 /**
+ * Letras de la palabra
+ * @param {string} word Palabra
+ * @returns {Array.<Letter>}
+ */
+function getLetters(word) {
+  return Word.getLetters(word);
+}
+
+/**
+ * Inicializa la palabra desde un objeto JSON
+ * @param {any} json Objeto JSON con la información de la palabra
+ * @returns {Word} Instancia de la palabra
+ */
+function createWord(json) {
+  return Word.fromJson(json);
+}
+
+/**
  * @class Word
  * @property {string} word
  * @property {string[]} [hints]
@@ -132,7 +150,6 @@ class Word {
 
   /**
    * La palabra
-   * @readonly
    * @returns {string}
    */
   get word() {
@@ -141,7 +158,6 @@ class Word {
 
   /**
    * Pistas de la palabra
-   * @readonly
    * @returns {Array.<string>}
    */
   get hints() {
@@ -150,7 +166,6 @@ class Word {
 
   /**
    * Categoría de la palabra
-   * @readonly
    * @returns {string}
    */
   get category() {
@@ -159,7 +174,6 @@ class Word {
 
   /**
    * Dificultad de la palabra
-   * @readonly
    * @returns {number}
    */
   get difficulty() {
@@ -168,7 +182,6 @@ class Word {
 
   /**
    * Definición de la palabra
-   * @readonly
    * @returns {string}
    */
   get definition() {
@@ -215,4 +228,4 @@ class Word {
   }
 }
 
-module.exports = { Word, Letters, stringToLetter };
+module.exports = { Word, Letters, stringToLetter, getLetters, createWord };

@@ -1,6 +1,5 @@
 /**
  * @class GameStatistics
- * @property {DifficultyValue} difficulty
  * @property {number} rounds
  * @property {number} wins
  * @property {number} lost
@@ -12,6 +11,13 @@
  * @property {number} noWrongLettersCount
  */
 export class GameStatistics {
+    /**
+     * Crea una instancia de GameStatistics a partir de un objeto JSON.
+     * @static
+     * @param {any} json Objeto JSON.
+     * @returns {GameStatistics}
+     */
+    static fromJson(json: any): GameStatistics;
     /**
      * Total de rondas jugadas
      * @type {number}
@@ -41,7 +47,7 @@ export class GameStatistics {
      * Conteo de letras correctas
      * @type {number}
      */
-    correctLeterCount: number;
+    correctLetterCount: number;
     /**
      * Conteo de letras incorrectas
      * @type {number}
@@ -63,5 +69,11 @@ export class GameStatistics {
      */
     count(round: GameRound): void;
 }
+/**
+ * Crear una instancia de GameStatistics desde un objeto json.
+ * @param {any} json Objeto json
+ * @returns {GameStatistics}
+ */
+export function createGameStatistics(json: any): GameStatistics;
 import { GameRound } from "./game_round";
 //# sourceMappingURL=game_statistics.d.ts.map
