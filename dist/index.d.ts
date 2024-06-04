@@ -20,12 +20,6 @@ import { Word } from "./word";
 import { getLetters } from "./word";
 import { createWord } from "./word";
 import { stringToLetter } from "./word";
-/**
- * Forza el valor a un número
- * @param {any} val Valor
- * @param {number|undefined} [defaultValue]
- * @returns
- */
-export function forceNumber(val: any, defaultValue?: number | undefined): number;
-export { Difficulty, GameConfig, createGameConfig, GameRound, GameRoundStatus, GameState, GameStatistics, createGameStatistics, GameStatus, HangmanGame, HelperConfig, HelperTypeEnum, WordListManager, WordList, createWords, createWordListFromJson, createWordListFromCsv, Letters, Word, getLetters, createWord, stringToLetter };
+import { forceNumber } from "./utilities";
+export { Difficulty, GameConfig, createGameConfig, GameRound, GameRoundStatus, GameState, GameStatistics, createGameStatistics, GameStatus, HangmanGame, HelperConfig, HelperTypeEnum, WordListManager, WordList, createWords, createWordListFromJson, createWordListFromCsv, Letters, Word, getLetters, createWord, stringToLetter, forceNumber };
 //# sourceMappingURL=index.d.ts.map

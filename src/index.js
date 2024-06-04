@@ -4,6 +4,7 @@ const { GameState } = require("./game_state");
 const { GameStatistics, createGameStatistics } = require("./game_statistics");
 const { GameStatus, HangmanGame } = require("./game");
 const { HelperConfig, HelperTypeEnum } = require("./helper");
+const { forceNumber } = require("./utilities");
 const { WordListManager } = require("./word_list_manager");
 const {
   WordList,
@@ -12,30 +13,6 @@ const {
   createWordListFromCsv,
 } = require("./word_list");
 const { Letters, Word, stringToLetter, getLetters, createWord } = require("./word");
-
-/**
- * Forza el valor a un número
- * @param {any} val Valor
- * @param {number|undefined} [defaultValue]
- * @returns
- */
-function forceNumber(val, defaultValue) {
-  if (typeof val === "number") {
-    return val;
-  }
-  if (typeof val === "string") {
-    try {
-      const num = parseInt(val);
-      if (isNaN(num)) {
-        return defaultValue || 0;
-      }
-      return num;
-    } catch (reason) {
-      return defaultValue || 0;
-    }
-  }
-  return defaultValue || 0;
-}
 
 module.exports = {
   Difficulty,

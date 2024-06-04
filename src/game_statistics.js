@@ -1,7 +1,7 @@
 /// @ts-check
 
 const { GameRound, GameRoundStatus } = require("./game_round");
-const { forceNumber } = require("./index");
+const { forceNumber } = require("./utilities");
 
 /**
  * Crear una instancia de GameStatistics desde un objeto json.
